@@ -5,4 +5,13 @@ var app = new Vue({
     }
 });
 
-  
+var app2 = new Vue({
+    el: '#app-2',
+    data: {
+        bucl:[
+            { message:"Aquí"  },
+            { message:"probando la lista" },
+            { message:'y el vue.js' },
+        ]
+    }
+  })  
