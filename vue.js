@@ -1,7 +1,7 @@
 var app = new Vue({ 
     el: '#app',
     data: {
-        message: 'Hello Luis!'
+        message: 'Hello, buenas tardes!'
     }
 });
 
