@@ -15,3 +15,11 @@ var app2 = new Vue({
         ]
     }
   })  
+
+  var app3 = new Vue({ 
+    el: '#app-3',
+    data: {
+        message: 'Imagen!',
+        imag: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Lynx_lynx2.jpg/368px-Lynx_lynx2.jpg"
+    }
+});
