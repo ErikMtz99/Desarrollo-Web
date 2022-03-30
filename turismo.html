@@ -25,8 +25,8 @@
    </head>
    <body style="background-color:#fff176;">
     <div class="container-fluid">
-       <h1 style="color:white; font: size 50px; text-align: center; background-color:#000000;">Lugares que quiero visitar algún día</h1>
-       <h3>Mostrar fotos de lugares que quiero visitar (fuera de México):</h3>
+       <h1 style="color:white; font: size 50px; font-family: 'Courier New', Courier, monospace; text-align: center;  background-color:#000000;">Lugares que quiero visitar algún día</h1>
+       <h3 style="font-family: 'Courier New', Courier, monospace;">Mostrar fotos de lugares que quiero visitar (fuera de México):</h3>
 
             <div id="app">
                     <button class="b1"  @click="show = !show">
@@ -51,7 +51,7 @@
                     <br/>
                     <div class="row"> 
                         <div class="col-sm-6">
-                            <h3> Lugares de México que quiero visitar:  </h3>
+                            <h3 style="font-family: 'Courier New', Courier, monospace;"> Lugares de México que quiero visitar:  </h3>
                             <select v-model="mex">
                                 <option v-for="(lugar, index) in lugares" :value="lugar">{{lugar}}</option>
                             </select>
