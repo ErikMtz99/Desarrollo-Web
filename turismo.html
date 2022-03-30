@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+   <head>
+        <meta charset="utf-8">
+        <title>Parcial 1</title>
+   </head>
+   <body>
+       <div id="app">
+            <button @click="show = !show">
+                <span v-if="show">Hide</span>
+                <span v-else>Show</span>
+            </button> {{show}}
+
+            <p v-if="show">lorem ipsum</p>
+            <p v-show="show">lorem ipsum 2</p>
+
+            <label>Nombre: </label><input type="text" v-model="name" />{{name}}
+            <button @click="alerta">Alerta</button>
+
+            <br/>
+            <select v-model="dia">
+                <option v-for="(day, index) in daysOfWeek" :value="day">{{day}}</option>
+            </select>{{dia}}
+
+       </div>
+            <!-- Esto es para poder utilizar el vue.js version 3-->
+       <script src="https://unpkg.com/vue@3"></script>
+       <script>
+           Vue.createApp({
+                data(){
+                    return{
+                        show: true, //this.name == 'Erik'? true : false,
+                        name: 'Erik',
+                        daysOfWeek: ['Lunes','Martes','Miercoles','Jueves','Viernes','Sabado','Domingo'],
+                        dia: ''
+                    }
+                },
+                methods: {
+                    alerta(){
+                        alert('Valor de name es: ' + this.name)
+                        //var nombre = this.name
+                        //this.name = 'Felipe'
+                        //nombre = 'Jose'
+                    }
+                }
+
+           }).mount('#app');
+       </script>
+   </body>
+</html>
