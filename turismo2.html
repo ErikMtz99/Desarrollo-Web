@@ -58,34 +58,20 @@
       </nav>
 
     <h1 style="color:white; font: size 50px; font-family: 'Courier New', Courier, monospace; text-align: center;  background-color:#000000;">Lugares que quiero visitar algún día <br>Erik Fernando Martínez Martínez</br></h1>
-    <h3 style="font-family: 'Courier New', Courier, monospace;">Mostrar fotos de lugares que quiero visitar (fuera de México):</h3>
     <div class="container-fluid">
             <div id="app">
-                    
-                    <button class="b1"  @click="show = !show">
-                         <span v-if="show">Esconder</span>
-                        <span v-else>Mostrar</span>
-                    </button> 
-                    <p></p>
+                    <p ref="p">hello</p>
                     <div class="row align-items-center"> 
                     <div class="col-sm-4">
-                        <img style="width:400px;height:300px" src="https://www.civitatis.com/blog/wp-content/uploads/2021/06/ballena-alaska-portada.jpg" alt="Alaska" v-if="show"></img>
-                        <p v-show="show"><strong>Alaska</strong></p>
+                        <p>Presiona enter para agregar palabra: </p>
+                        <span>{{text}}</span>
+                        <p></p>
+                        <input type ="text" v-on:keyup.enter="addline">
                     </div>
-                    <div class="col-sm-4">
-                        <img style="width:400px;height:300px" src="https://static.hosteltur.com/app/public/uploads/img/articles/2020/09/22/L_091337_colombia-turismo.jpg" alt="Colombia" v-if="show"></img>
-                        <p v-show="show"><strong>Colombia</strong></p>
-                    </div>
-                    <div class="col-sm-4">
-                        <img style="width:400px;height:300px" src="https://jingculturecommerce.com/wp-content/uploads/2020/05/shutterstock_508535308-1240x698.jpg" alt="China" v-if="show"></img>
-                        <p v-show="show"><strong>China</strong></p>
-                    </div>
-                    </div>
-                    <br/>
-                    <div class="row"> 
-                        <div class="col-sm-6">
-                            <h3 style="font-family: 'Courier New', Courier, monospace;"> Lugares de México que quiero visitar:  </h3>
 
+                        <div class="col-sm-6">s
+                            <h3 style="font-family: 'Courier New', Courier, monospace;"> Lugares de México que quiero visitar:  </h3>
+                            
                             <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
@@ -96,30 +82,41 @@
                                 </thead>
                                 <tbody>
                                     <tr v-for="lgr in places" :key="lgr.id">
-                                        <td>{{lgr.Estado}}</td>
-                                        <td>{{lgr.ciudad}}</td>
-                                        <td>{{lgr.l}}</td>
+                                        <td v-if="show">{{lgr.Estado}}</td>
+                                        <td v-if="show">{{lgr.ciudad}}</td>
+                                        <td v-if="show">{{lgr.l}}</td>
                                     </tr>
                                 </tbody>
                             </table>
                             <p>  </p>
-
+                            <button @click="toogleShow">
+                                {{ show ? 'Ocultar todos' : 'Mostrar todos' }}
+                            </button>
+ 
+                            <p>  </p>
                         </div>
-                        <div class="col-sm-3">
-                            <img style="width:300px;height:200px; align-content: center;" src="https://www.caracteristicas.co/wp-content/uploads/2017/08/historia-de-mexico-e1571100993682.jpg" alt="México"></img>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <button @click="valor++">Contador</button>
+                            <span>{{valor}}</span>
                         </div>
-                        <div class="col-sm-3">
-                            <p><strong>Agregar lugar nuevo a la tabla: </strong></p>
-                            <label>Lugar nuevo: </label><input type="text" v-model="name" />
+                    </div>
+                    <div class="row">
+                        <div>
                             <p></p>
-                            <button class="b1" @click="alerta">Alerta</button>
+                            <img style="width:400px;height:300px" src="https://www.anipedia.net/imagenes/especies-extintas-tigres.jpg" alt="Tigre"></img>
+                            <p v-show="show"><strong>Tigre</strong></p>
                         </div>
+                    </div>
+                    </div>
+
            </div>
     </div>
 
 
 <!-- Esto es para poder utilizar el vue.js version 3-->
-<script src="https://unpkg.com/vue@3"></script>
+<script src="https://unpkg.com/vue@3"></script> 
 <script src="vue.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
