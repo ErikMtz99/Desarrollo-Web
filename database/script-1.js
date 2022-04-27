@@ -5,10 +5,10 @@ var sql = 'SELECT * FROM category LIMIT 10';
 
 // Parámetros de conexión a la base de datos.
 var con = mysql.createConnection({
-  host: "tu-host",
-  user: "tu-user-de-db",
-  password: "tu-pass-de-db",
-  database : 'tu-nombre-de-db'
+  host: "localhost",
+  user: "root",
+  password: "Superviolin99!",
+  database : 'eshop'
 });
 
 // Funcion que nos permite comprobar la conexión a la base de datos.
