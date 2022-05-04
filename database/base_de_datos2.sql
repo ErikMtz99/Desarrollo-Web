@@ -41,5 +41,5 @@ select * from Users;
 protocol requested by server; consider upgrading MySQL client" ejecute las
 siguientes dos instrucciones*/
 
--- ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '';
--- flush privileges;
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Superviolin99!';
+flush privileges;
