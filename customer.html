@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Customers</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="app" class="container">
+            <menu-component :user="userName" @response="(msg) => childMsg = msg"></menu-component>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h3 class="text-center">Customers</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-7"></div>
+                <div class="col-sm-1">
+                    <label class="form-label">Customer:</label> 
+                </div>
+                <div class="col-sm-2">
+                    <input type="number" v-model="customerId" @keyup.enter="getCustomer()" class="form-control"></text>
+                </div>
+                <div class="col-sm-2">
+                    <button @click="getCustomer()" class="btn btn-light">...</button>&nbsp;
+                    <button @click="CustomerData('')" class="btn btn-light">Add</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Phone</th>
+                                <th scope="col">Address</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Date of Birth</th>
+                                <th scope="col">&nbsp;</th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="customer of customers">
+                                <th scope="row">{{customer.Id}}</th>
+                                <td>{{customer.Name}}</td>
+                                <td>{{customer.Phone}}</td>
+                                <td>{{customer.Address}}</td>
+                                <td>{{customer.Email}}</td>
+                                <td>{{customer.DateOfBirth}}</td>
+                                <td>
+                                    <button class="btn btn-danger" @click="DeleteCustomer(customer.Id)">Eliminar</button>&nbsp;
+                                    <button class="btn btn-primary" @click="CustomerData(customer.Id)">Editar</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h5 class="text-center">Total customers {{ totalCustomers }}</h5>
+                </div>
+            </div>
+        </div>    
+
+        <script src="https://unpkg.com/vue@3"></script>
+        <script src="js/appCustomers.js"></script>
+        <script src="js/menu.component.js"></script>
+        <script>
+            const mountedApp = app.mount('#app');
+        </script>
+    </body>
+</html>
