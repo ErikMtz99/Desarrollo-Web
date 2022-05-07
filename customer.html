@@ -9,22 +9,23 @@
     <body>
         <div id="app" class="container">
             <menu-component :user="userName" @response="(msg) => childMsg = msg"></menu-component>
+            <br/><br/><br/><br/>
             <div class="row">
                 <div class="col-sm-12">
-                    <h3 class="text-center">Customers</h3>
+                    <h3 class="text-center">Inventario</h3>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-7"></div>
                 <div class="col-sm-1">
-                    <label class="form-label">Customer:</label> 
+                    <label class="form-label">ID:</label> 
                 </div>
                 <div class="col-sm-2">
                     <input type="number" v-model="customerId" @keyup.enter="getCustomer()" class="form-control"></text>
                 </div>
                 <div class="col-sm-2">
                     <button @click="getCustomer()" class="btn btn-light">...</button>&nbsp;
-                    <button @click="CustomerData('')" class="btn btn-light">Add</button>
+                    <button @click="CustomerData('')" class="btn btn-light">Buscar</button>
                 </div>
             </div>
             <div class="row">
@@ -58,7 +59,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <h5 class="text-center">Total customers {{ totalCustomers }}</h5>
+                    <h5 class="text-center">Variedad de Productos {{ totalCustomers }}</h5>
                 </div>
             </div>
         </div>    
@@ -70,4 +71,17 @@
             const mountedApp = app.mount('#app');
         </script>
     </body>
+
+    <footer>
+        <nav class="navbar fixed-bottom navbar-expand-lg" style="background-color: #e3f2fd;">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" style ="color:black;" href="index.html">Erik Fernando Martínez Martínez</a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+    </footer>
+    
 </html>

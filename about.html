@@ -9,15 +9,16 @@
     <body>
         <div id="app" class="container">
             <menu-component :user="userName" @response="(msg) => childMsg = msg"></menu-component>
+            <br/><br/><br/><br/>
             <div class="row">
                 <div class="col-sm-12">
-                    <h3 class="text-center">About</h3>
+                    <h3 class="text-center">Sobre la Tienda</h3>
                     <hr/>
                 </div>
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <p class="text-center">In this application you can see how to work with Vue.Js and an API with Node.Js.</p>
+                    <p class="text-center">Aquí se venden productos de electrónica para todos tus proyectos!</p>
                 </div>
             </div>
         </div>    
@@ -29,4 +30,15 @@
             const mountedApp = app.mount('#app');
         </script>
     </body>
+    <footer>
+        <nav class="navbar fixed-bottom navbar-expand-lg" style="background-color: #e3f2fd;">
+            <div class="container-fluid">
+                <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" style ="color:black;" href="index.html">Erik Fernando Martínez Martínez</a>
+                  </li>
+                </ul>
+            </div>
+        </nav>
+    </footer>
 </html>
