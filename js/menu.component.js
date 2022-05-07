@@ -5,13 +5,13 @@ app.component('menu-component', {
           <!-- Links -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
+              <a class="nav-link" href="index.html">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="customer.html">Costomers</a>
+              <a class="nav-link" href="customer.html">Base de Datos</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
+              <a class="nav-link" href="about.html">Sobre la página</a>
             </li>
           </ul>
           <div class="end-text">

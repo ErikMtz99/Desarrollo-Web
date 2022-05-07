@@ -9,10 +9,9 @@ var app = Vue.createApp({
             customer: {
                 Id: null,
                 Name: '',
-                Phone: '',
-                Address: '',
-                Email: '',
-                DateOfBirth: ''
+                Precio: '',
+                Cantidad: '',
+                Uso: '',
             }
         }
     },
@@ -28,12 +27,11 @@ var app = Vue.createApp({
         },
         async getCustomer(){
             const customerData = await this.CallApi(this.urlBase + '/customer/' + this.customerId, 'GET', null);
-            this.customer.Id = customerData[0].Id;
-            this.customer.Name = customerData[0].Name;
-            this.customer.Phone = customerData[0].Phone;
-            this.customer.Address = customerData[0].Address;
-            this.customer.Email = customerData[0].Email;
-            this.customer.DateOfBirth = customerData[0].DateOfBirth;
+            this.customer.id = customerData[0].Id;
+            this.customer.name = customerData[0].Name;
+            this.customer.precio = customerData[0].Precio;
+            this.customer.cantidad = customerData[0].Cantidad;
+            this.customer.uso = customerData[0].Uso;
         },
         async CallApi(url, method, data){
             const header = data == null? { 	method: method,
@@ -57,10 +55,9 @@ var app = Vue.createApp({
             const data = { 
                 'id': this.customer.Id,
                 'name': this.customer.Name, 
-                'phone': this.customer.Phone, 
-                'address': this.customer.Address,
-                'email': this.customer.Email,
-                'dateOfBirth': this.customer.DateOfBirth
+                'precio': this.customer.Precio, 
+                'cantidad': this.customer.Cantidad,
+                'uso': this.customer.Uso
             };
             const method = this.customerId == ''? 'POST' : 'PUT';
 

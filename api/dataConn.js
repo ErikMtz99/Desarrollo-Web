@@ -4,7 +4,7 @@ const dbSettings = {
     host: "localhost",
     user: "root",
     password: "Superviolin99!",
-    database: "testdb"
+    database: "inventario"
 }
 
 async function getConnection(){

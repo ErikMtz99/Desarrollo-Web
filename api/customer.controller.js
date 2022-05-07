@@ -3,7 +3,7 @@ const mysql = require('mysql');
 
 const getCustomers = async (req, res) => {
     const pool = await dataConn.getConnection(); 
-    const sql = "select Id,Name,Phone,Address,Email, DATE_FORMAT(DateOfBirth, \'%Y-%m-%d\') DateOfBirth from Customers";
+    const sql = "select Id,Name,Precio,Cantidad,Uso from Componentes";
     pool.query(sql, function (err, result, fields) {
         return res.json(result);
     });
@@ -12,7 +12,7 @@ const getCustomers = async (req, res) => {
 const getCustomerById = async (req, res) => {
     const { id } = req.params;
     const pool = await dataConn.getConnection();
-    const sql = "select Id,Name,Phone,Address,Email, DATE_FORMAT(DateOfBirth, \'%Y-%m-%d\') DateOfBirth from Customers where id = " + mysql.escape(id);
+    const sql = "select Id,Name,Precio,Cantidad,Uso from Componentes where id = " + mysql.escape(id);
 
     pool.query(sql, function (err, result, fields) {
         if (err) throw err;
@@ -21,10 +21,10 @@ const getCustomerById = async (req, res) => {
 }
 
 const createCustomer = async (req, res) => {
-    const { name, phone, address, email, dateOfBirth } = req.body;
+    const { name, precio, cantidad, uso } = req.body;
     const pool = await dataConn.getConnection();
-    const sql = "insert into Customers(Name, Phone, Address, Email, DateOfBirth) values (?)";
-    const values = [ name, phone, address, email, dateOfBirth ];
+    const sql = "insert into Componentes(Name, Precio, Cantidad, Uso) values (?)";
+    const values = [ name, precio, cantidad, uso ];
 
     pool.query(sql, [values], function (err, result) {
         if (err) throw err;
@@ -35,7 +35,7 @@ const createCustomer = async (req, res) => {
 const deleteCustomer = async (req, res) => {
     const { id } = req.params;
     const pool = await dataConn.getConnection();
-    const sql = 'delete from Customers where id = ' + mysql.escape(id)
+    const sql = 'delete from Componentes where id = ' + mysql.escape(id)
 
     pool.query(sql, function (err, result) {
         if (err) throw err;
@@ -44,9 +44,9 @@ const deleteCustomer = async (req, res) => {
 }
 
 const updateCustomer = async (req, res) => {
-    const { id, name, phone, address, email, dateOfBirth } = req.body;
+    const { id, name, precio, cantidad, uso } = req.body;
     const pool = await dataConn.getConnection();
-    const sql = "update Customers set name = " + mysql.escape(name) + ", phone = " + mysql.escape(phone) + ", address = " + mysql.escape(address) + ", email = " + mysql.escape(email) + ", dateOfBirth = " + mysql.escape(dateOfBirth) + " where id = " + mysql.escape(id)
+    const sql = "update Componentes set name = " + mysql.escape(name) + ", Precio = " + mysql.escape(precio) + ", Cantidad = " + mysql.escape(cantidad) + ", Uso = " + mysql.escape(uso) + " where id = " + mysql.escape(id)
     
     pool.query(sql, function (err, result) {
         if (err) throw err;
